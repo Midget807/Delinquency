@@ -1,13 +1,17 @@
 {
-	"required": true,
-	"package": "net.midget807.trapsntrickery.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"mixins": [
-		"ItemEntityMixin",
-		"SlimeEntityMixin",
-		"TntBlockMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
-	}
+  "required": true,
+  "package": "net.midget807.trapsntrickery.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "ItemEntityMixin",
+    "LivingEntityMixin",
+    "SlimeEntityMixin",
+    "TntBlockMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "client.InGameHudMixin"
+  ]
 }

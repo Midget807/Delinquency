@@ -1,5 +1,6 @@
 package net.midget807.trapsntrickery.effect.custom;
 
+import net.midget807.trapsntrickery.entity.custom.interfaces.Slimeable;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
@@ -16,6 +17,6 @@ public class MagmaSlimedEffect extends StatusEffect {
 
     @Override
     public void onApplied(LivingEntity entity, int amplifier) {
-        entity.setOnFireForTicks(5 * 20);
+        ((Slimeable)entity).setIsMagmaSlimed(true);
     }
 }

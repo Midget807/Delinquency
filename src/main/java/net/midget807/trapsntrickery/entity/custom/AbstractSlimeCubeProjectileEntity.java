@@ -41,13 +41,13 @@ public abstract class AbstractSlimeCubeProjectileEntity extends ThrownItemEntity
         if (!this.getWorld().isClient) {
             if (isMagma) {
                 if (target.isFireImmune() || !(target instanceof LivingEntity)) {
-                    this.spawnSlime(entityHitResult.getEntity().getBlockPos());
+                    this.spawnSlime(entityHitResult.getEntity().getBlockPos(), true);
                 } else {
                     this.splooge((LivingEntity) target);
                 }
             } else {
                 if (target.getType() == EntityType.SLIME || !(target instanceof LivingEntity)) {
-                    this.spawnSlime(target.getBlockPos());
+                    this.spawnSlime(target.getBlockPos(), false);
                 } else {
                     this.splooge((LivingEntity) target);
                 }
@@ -59,12 +59,12 @@ public abstract class AbstractSlimeCubeProjectileEntity extends ThrownItemEntity
     @Override
     protected void onBlockHit(BlockHitResult blockHitResult) {
         super.onBlockHit(blockHitResult);
-        this.spawnSlime(blockHitResult.getBlockPos().offset(blockHitResult.getSide()));
+        this.spawnSlime(blockHitResult.getBlockPos().offset(blockHitResult.getSide()), isMagma);
         this.discard();
     }
 
-    public void spawnSlime(BlockPos blockPos) {
-        SlimeEntity slimeEntity = new SlimeEntity(EntityType.SLIME, this.getWorld());
+    public void spawnSlime(BlockPos blockPos, boolean isMagma) {
+        SlimeEntity slimeEntity = new SlimeEntity(isMagma ? EntityType.MAGMA_CUBE : EntityType.SLIME, this.getWorld());
         slimeEntity.setSize(1, true);
         slimeEntity.updatePosition(blockPos.getX(), blockPos.getY(), blockPos.getZ());
         slimeEntity.setPos(blockPos.getX(), blockPos.getY(), blockPos.getZ());
