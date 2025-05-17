@@ -1,0 +1,8 @@
+{
+  "item.trapsntrickery.slime_cube": "Slime Cube",
+  "item.trapsntrickery.magma_cube": "Magma Cube",
+  "effect.trapsntrickery.slimed": "Slimed",
+  "effect.trapsntrickery.magma_slimed": "Magma Slimed",
+  "entity.trapsntrickery.slime_cube_projectile": "Thrown Slime Cube",
+  "entity.trapsntrickery.magma_cube_projectile": "Thrown Magma Cube"
+}
