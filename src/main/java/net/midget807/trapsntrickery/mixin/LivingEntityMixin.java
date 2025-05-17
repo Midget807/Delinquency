@@ -121,7 +121,9 @@ public abstract class LivingEntityMixin extends Entity implements Attackable, Sl
     @Inject(method = "tick", at = @At("TAIL"))
     private void trapsntrickery$slimedTicks(CallbackInfo ci) {
         if (((LivingEntity)((Object)this)).hasStatusEffect(ModEffects.MAGMA_SLIMED)) {
-            this.setOnFireForTicks(1);
+            if (!this.isOnFire() && !this.isWet()) {
+                this.setFireTicks(((LivingEntity)((Object)this)).getStatusEffect(ModEffects.MAGMA_SLIMED).getDuration());
+            }
         }
         if (((LivingEntity)((Object)this)).isWet()) {
             ((LivingEntity)((Object)this)).removeStatusEffect(ModEffects.SLIMED);
