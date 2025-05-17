@@ -1,5 +1,8 @@
 package net.midget807.trapsntrickery.mixin;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import com.llamalad7.mixinextras.sugar.Local;
 import net.midget807.trapsntrickery.effect.ModEffects;
 import net.midget807.trapsntrickery.entity.custom.interfaces.Slimeable;
 import net.minecraft.entity.Attackable;
@@ -9,20 +12,24 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.crash.CrashException;
 import net.minecraft.util.crash.CrashReport;
 import net.minecraft.util.crash.CrashReportSection;
 import net.minecraft.world.World;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import java.util.Iterator;
+import java.util.Map;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity implements Attackable, Slimeable {
@@ -37,6 +44,10 @@ public abstract class LivingEntityMixin extends Entity implements Attackable, Sl
     private boolean isMagmaSlimed;
 
     @Shadow public abstract void setOnFireForTicks(int ticks);
+
+    @Shadow private boolean effectsChanged;
+
+    @Shadow @Final private Map<RegistryEntry<StatusEffect>, StatusEffectInstance> activeStatusEffects;
 
     public LivingEntityMixin(EntityType<?> type, World world) {
         super(type, world);
@@ -143,9 +154,6 @@ public abstract class LivingEntityMixin extends Entity implements Attackable, Sl
                 this.setMagmaSlimedTicks(Math.max(0, j - 2));
             }
         }
-        if (((LivingEntity)((Object)this)) instanceof PlayerEntity player) {
-            player.sendMessage(Text.literal("SLimed: " + this.isSlimed()), true);
-        }
     }
 
     @Override
@@ -173,4 +181,6 @@ public abstract class LivingEntityMixin extends Entity implements Attackable, Sl
             throw new CrashException(crashReport);
         }
     }
+
+
 }

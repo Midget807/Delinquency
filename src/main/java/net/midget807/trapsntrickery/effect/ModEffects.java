@@ -1,6 +1,7 @@
 package net.midget807.trapsntrickery.effect;
 
 import net.midget807.trapsntrickery.TrapsAndTrickeryMain;
+import net.midget807.trapsntrickery.effect.custom.EggedEffect;
 import net.midget807.trapsntrickery.effect.custom.MagmaSlimedEffect;
 import net.midget807.trapsntrickery.effect.custom.SlimedEffect;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
@@ -12,6 +13,9 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.entry.RegistryEntry;
 
 public class ModEffects {
+    public static final RegistryEntry<StatusEffect> EGGED = registerStatusEffect("egged",
+            new EggedEffect(StatusEffectCategory.HARMFUL, 0xFEFEFE)
+    );
     public static final RegistryEntry<StatusEffect> SLIMED = registerStatusEffect("slimed",
             new SlimedEffect(StatusEffectCategory.HARMFUL, 0x36EBAB)
                     .addAttributeModifier(

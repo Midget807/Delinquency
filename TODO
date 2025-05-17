@@ -1,1 +1,11 @@
-//TODO
+//TODO slime and magma particle
+//TODO lens and spyglass
+//TODO check trapped chest texture
+//TODO pitfall surface -> disguised like create copycat stuff -> all surface materials and cracked materials
+//TODO spike traps (cant jump out) -> dripstone (unwaterloggable), bamboo (can be tipped), barbed wire (made by iron nuggets -> slows)
+//TODO egging -> similar to slimes but does not low and covers less of the screen (amplifier increases ber egg capped at lvl 5)
+//TODO bricking -> nausea and blindness + breaks glass panes (instant) and glass blocks (cracks first) -> drops glass shard
+//TODO glass shards -> can be placed + does damage when walked on (via "cut effect") and after but only can apply when walking
+//TODO unmilkable effects
+
+//TODO seamoon import >:)
