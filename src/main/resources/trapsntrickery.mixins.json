@@ -1,0 +1,13 @@
+{
+	"required": true,
+	"package": "net.midget807.trapsntrickery.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"ItemEntityMixin",
+		"SlimeEntityMixin",
+		"TntBlockMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

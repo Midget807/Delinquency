@@ -1,0 +1,21 @@
+package net.midget807.trapsntrickery.effect.custom;
+
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.particle.ParticleEffect;
+
+public class MagmaSlimedEffect extends StatusEffect {
+    public MagmaSlimedEffect(StatusEffectCategory category, int color) {
+        super(category, color);
+    }
+
+    public MagmaSlimedEffect(StatusEffectCategory category, int color, ParticleEffect particleEffect) {
+        super(category, color, particleEffect);
+    }
+
+    @Override
+    public void onApplied(LivingEntity entity, int amplifier) {
+        entity.setOnFireForTicks(5 * 20);
+    }
+}
