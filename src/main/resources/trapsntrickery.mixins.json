@@ -6,12 +6,15 @@
     "ItemEntityMixin",
     "LivingEntityMixin",
     "SlimeEntityMixin",
-    "TntBlockMixin"
+    "TntBlockMixin",
+    "seamoon.LivingEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "client": [
-    "client.InGameHudMixin"
+    "client.InGameHudMixin",
+    "seamoon.client.ItemRendererMixin",
+    "seamoon.client.ModelLoaderMixin"
   ]
 }

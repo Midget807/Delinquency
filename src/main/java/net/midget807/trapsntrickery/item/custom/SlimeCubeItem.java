@@ -63,9 +63,6 @@ public class SlimeCubeItem extends Item {
                 if (slimeEntity == null) {
                     return TypedActionResult.fail(itemStack);
                 } else {
-                    if (!user.getAbilities().creativeMode) {
-                        itemStack.decrement(1);
-                    }
                     user.incrementStat(Stats.USED.getOrCreateStat(this));
                     world.emitGameEvent(user, GameEvent.ENTITY_PLACE, slimeEntity.getPos());
                     BlockPos blockPos = hitResult.getBlockPos();
@@ -73,6 +70,7 @@ public class SlimeCubeItem extends Item {
                     slimeEntity.updatePosition(blockPos.offset(side).getX(), blockPos.offset(side).getY(), blockPos.offset(side).getZ());
                     slimeEntity.setPos(blockPos.offset(side).getX(), blockPos.offset(side).getY(), blockPos.offset(side).getZ());
                     world.spawnEntity(slimeEntity);
+                    itemStack.decrementUnlessCreative(1, user);
                     return TypedActionResult.success(itemStack);
                 }
             } else {
@@ -81,6 +79,7 @@ public class SlimeCubeItem extends Item {
                 projectile.setPos(user.getX(), user.getEyeY(), user.getZ());
                 projectile.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f, 1.3f, 0.5f);
                 world.spawnEntity(projectile);
+                itemStack.decrementUnlessCreative(1, user);
                 return TypedActionResult.success(itemStack);
             }
         } else {
@@ -89,6 +88,7 @@ public class SlimeCubeItem extends Item {
             projectile.setPos(user.getX(), user.getEyeY(), user.getZ());
             projectile.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f, 1.3f, 0.5f);
             world.spawnEntity(projectile);
+            itemStack.decrementUnlessCreative(1, user);
             return TypedActionResult.success(itemStack);
         }
     }
