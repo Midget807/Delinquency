@@ -19,9 +19,5 @@ public class SeamoonItems {
 
     public static void registerModItems() {
         TrapsAndTrickeryMain.LOGGER.info("Registering Seamoon Items");
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(SeamoonItems::addItemsToFoodGroup);
-    }
-    private static void addItemsToFoodGroup(FabricItemGroupEntries entries) {
-        entries.add(PotionContentsComponent.createStack(Items.POTION, SeamoonEffects.AFFECTIONATE_POTION));
     }
 }
