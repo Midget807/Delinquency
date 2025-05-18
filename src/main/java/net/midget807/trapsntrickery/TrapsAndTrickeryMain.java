@@ -5,9 +5,11 @@ import net.fabricmc.api.ModInitializer;
 import net.midget807.trapsntrickery.effect.ModEffects;
 import net.midget807.trapsntrickery.entity.ModEntities;
 import net.midget807.trapsntrickery.item.ModItems;
+import net.midget807.trapsntrickery.seamoon.block.SeamoonBlocks;
 import net.midget807.trapsntrickery.seamoon.effect.SeamoonEffects;
 import net.midget807.trapsntrickery.seamoon.item.SeamoonItems;
 import net.midget807.trapsntrickery.seamoon.particle.SeamoonParticleTypes;
+import net.midget807.trapsntrickery.seamoon.recipe.SeamoonRecipes;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,5 +39,7 @@ public class TrapsAndTrickeryMain implements ModInitializer {
 		SeamoonItems.registerModItems();
 		SeamoonEffects.registerModEffect();
 		SeamoonParticleTypes.registerModParticles();
+		SeamoonBlocks.registerSeamoonBlocks();
+		SeamoonRecipes.registerSeamoonRecipes();
 	}
 }
