@@ -1,8 +1,8 @@
 {
 	"schemaVersion": 1,
-	"id": "trapsntrickery",
+	"id": "delinquency",
 	"version": "${version}",
-	"name": "Traps and Trickery",
+	"name": "Delinquency",
 	"description": "A little bit of tomfoolery...",
 	"authors": [
 		"Midget807"
@@ -12,21 +12,21 @@
 		"issues": "https://github.com/Midget807/Traps-And-Trickery/issues"
 	},
 	"license": "MIT",
-	"icon": "assets/trapsntrickery/icon.png",
+	"icon": "assets/delinquency/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.midget807.trapsntrickery.TrapsAndTrickeryMain"
+			"net.midget807.delinquency.DelinquencyMain"
 		],
 		"client": [
-			"net.midget807.trapsntrickery.TrapsAndTrickeryClient"
+			"net.midget807.delinquency.DelinquencyClient"
 		],
 		"fabric-datagen": [
-			"net.midget807.trapsntrickery.TrapsAndTrickeryDataGenerator"
+			"net.midget807.delinquency.DelinquencyDataGenerator"
 		]
 	},
 	"mixins": [
-		"trapsntrickery.mixins.json"
+		"delinquency.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.16.14",

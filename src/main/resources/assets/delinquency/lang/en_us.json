@@ -1,0 +1,8 @@
+{
+  "item.delinquency.slime_cube": "Slime Cube",
+  "item.delinquency.magma_cube": "Magma Cube",
+  "effect.delinquency.slimed": "Slimed",
+  "effect.delinquency.magma_slimed": "Magma Slimed",
+  "entity.delinquency.slime_cube_projectile": "Thrown Slime Cube",
+  "entity.delinquency.magma_cube_projectile": "Thrown Magma Cube"
+}
